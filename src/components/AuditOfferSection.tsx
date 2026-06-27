@@ -54,9 +54,10 @@ export const AuditOfferSection = forwardRef<HTMLElement, AuditOfferSectionProps>
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-neutral-400 mb-4 tracking-tight">
             The Free Automation Audit
           </h2>
+          <motion.div initial={{ width: 0 }} whileInView={{ width: '4rem' }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="h-1 bg-accent mx-auto mb-6 rounded-full" />
           <p className="text-neutral-400 text-lg max-w-xl mx-auto">
             A structured review of where your operations are losing time — and what you could do about it.
           </p>
@@ -113,9 +114,10 @@ export const AuditOfferSection = forwardRef<HTMLElement, AuditOfferSectionProps>
         >
           <button
             onClick={onRequestAudit}
-            className="px-8 py-4 bg-accent/10 border border-accent/40 text-white text-base font-medium rounded-lg hover:bg-accent/20 hover:border-accent/60 transition-all duration-300 mb-6"
+            className="px-8 py-4 bg-accent/10 border border-accent/40 text-white text-base font-medium rounded-lg hover:bg-accent/20 hover:border-accent/80 hover:shadow-[0_0_30px_rgba(79,70,229,0.3)] hover:scale-105 transition-all duration-300 mb-6 relative overflow-hidden group"
           >
-            Request a Free Automation Audit
+            <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:translate-x-[150%] transition-transform duration-1000 ease-out" />
+            <span className="relative z-10">Request a Free Automation Audit</span>
           </button>
           <p className="text-neutral-500 text-sm max-w-sm mx-auto">
             No cost. No obligation. You decide what to do with the recommendations.

@@ -45,9 +45,10 @@ export function ReframeSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-neutral-400 mb-4 tracking-tight">
             What an AI System Actually Is
           </h2>
+          <motion.div initial={{ width: 0 }} whileInView={{ width: '4rem' }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="h-1 bg-accent mx-auto mb-6 rounded-full" />
           <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
             It's not what the headlines make it sound like. It's simpler and more practical than that.
           </p>
@@ -64,11 +65,12 @@ export function ReframeSection() {
             <motion.div
               key={concept.title}
               variants={itemVariants}
-              className="p-6 bg-dark-bg border border-dark-border rounded-lg"
+              className="p-6 bg-dark-bg border border-dark-border rounded-lg group hover:scale-[1.02] hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(79,70,229,0.15)] transition-all duration-300 relative overflow-hidden"
             >
-              <concept.icon className="w-6 h-6 text-neutral-500 mb-4" strokeWidth={1.5} />
-              <h3 className="text-lg font-semibold text-white mb-3">{concept.title}</h3>
-              <p className="text-neutral-400 leading-relaxed text-sm">{concept.description}</p>
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <concept.icon className="w-6 h-6 text-neutral-500 mb-4 group-hover:text-accent group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300 relative z-10" strokeWidth={1.5} />
+              <h3 className="text-lg font-semibold text-white mb-3 relative z-10">{concept.title}</h3>
+              <p className="text-neutral-400 leading-relaxed text-sm relative z-10">{concept.description}</p>
             </motion.div>
           ))}
         </motion.div>
