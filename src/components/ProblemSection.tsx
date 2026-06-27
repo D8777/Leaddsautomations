@@ -4,23 +4,23 @@ import { Copy, AlertCircle, Clock, Users } from 'lucide-react';
 const painPoints = [
   {
     icon: Copy,
-    title: 'Manual data entry',
-    description: 'Copy-paste between tools that should talk to each other automatically.',
+    title: 'Data Silos & Manual Transfer',
+    description: "Architectures that don't communicate, forcing your team into manual data entry.",
   },
   {
     icon: AlertCircle,
-    title: 'Things falling through the cracks',
-    description: 'Leads, tasks, or follow-ups that get missed because no system is watching.',
+    title: 'Systemic Lead Leakage',
+    description: 'Leads, proposals, and critical follow-ups dropping through the cracks of broken systems.',
   },
   {
     icon: Clock,
-    title: 'Reporting that takes hours',
-    description: 'Pulling numbers from different places into one spreadsheet, every single week.',
+    title: 'Inefficient Reporting Loops',
+    description: 'Wasting high-value executive time pulling numbers from disconnected platforms.',
   },
   {
     icon: Users,
-    title: 'Repetitive team work',
-    description: "Time spent on low-judgment tasks that don't actually need a person.",
+    title: 'Human Capital Waste',
+    description: "Deploying your smartest people to execute low-judgment, repetitive tasks.",
   },
 ];
 
@@ -46,16 +46,16 @@ export function ProblemSection() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-accent mb-4 tracking-tight">
-            What's Getting in the Way
+            Diagnosing Operational Bottlenecks
           </h2>
           <motion.div initial={{ width: 0 }} whileInView={{ width: '4rem' }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="h-1 bg-accent mx-auto mb-6 rounded-full" />
           <p className="text-neutral-400 text-lg max-w-xl mx-auto">
-            These are the operational problems that slow teams down — not the headlines, just the reality.
+            These are the systemic failures that stunt growth and burn out teams.
           </p>
         </motion.div>
 
@@ -63,7 +63,7 @@ export function ProblemSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {painPoints.map((point) => (

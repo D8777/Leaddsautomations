@@ -1,23 +1,31 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
 import { ProblemSection } from './components/ProblemSection';
 import { ReframeSection } from './components/ReframeSection';
+import { InfiniteMarquee } from './components/InfiniteMarquee';
+import { CaseStudiesSection } from './components/CaseStudiesSection';
+import { ROICalculatorSection } from './components/ROICalculatorSection';
 import { AuditOfferSection } from './components/AuditOfferSection';
 import { FinalCTASection } from './components/FinalCTASection';
+import { MultiStepAuditModal } from './components/MultiStepAuditModal';
+import { CustomCursor } from './components/CustomCursor';
 import { Footer } from './components/Footer';
 
 function App() {
   const auditRef = useRef<HTMLElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollYProgress } = useScroll();
 
-  const scrollToAudit = () => {
-    auditRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const handleRequestAudit = () => {
+    setIsModalOpen(true);
   };
 
   return (
     <div className="bg-dark-bg min-h-screen relative">
+      <CustomCursor />
+      <MultiStepAuditModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-[100]"
         style={{ scaleX: scrollYProgress }}
@@ -32,13 +40,16 @@ function App() {
         </filter>
         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
       </svg>
-      <Navigation onRequestAudit={scrollToAudit} />
+      <Navigation onRequestAudit={handleRequestAudit} />
       <main>
-        <HeroSection onRequestAudit={scrollToAudit} />
+        <HeroSection onRequestAudit={handleRequestAudit} />
+        <InfiniteMarquee />
         <ProblemSection />
+        <ROICalculatorSection />
         <ReframeSection />
-        <AuditOfferSection ref={auditRef} onRequestAudit={scrollToAudit} />
-        <FinalCTASection onRequestAudit={scrollToAudit} />
+        <CaseStudiesSection />
+        <AuditOfferSection ref={auditRef} onRequestAudit={handleRequestAudit} />
+        <FinalCTASection onRequestAudit={handleRequestAudit} />
       </main>
       <Footer />
     </div>

@@ -50,7 +50,7 @@ export const AuditOfferSection = forwardRef<HTMLElement, AuditOfferSectionProps>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -67,7 +67,7 @@ export const AuditOfferSection = forwardRef<HTMLElement, AuditOfferSectionProps>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-16 text-center"
         >
@@ -78,37 +78,50 @@ export const AuditOfferSection = forwardRef<HTMLElement, AuditOfferSectionProps>
           </div>
         </motion.div>
 
-        {/* Steps */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
-        >
-          {steps.map((step) => (
+        {/* Steps Container */}
+        <div className="relative mb-16">
+          {/* Timeline Connector Desktop */}
+          <div className="hidden md:block absolute top-[52px] left-[16.66%] right-[16.66%] h-[2px] pointer-events-none z-0">
+             <svg width="100%" height="2" preserveAspectRatio="none">
+              <motion.line x1="0" y1="0" x2="100%" y2="0" stroke="#D4AF37" strokeOpacity="0.3" strokeWidth="2" strokeDasharray="6 6" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }} />
+            </svg>
+          </div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, margin: '-100px' }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10"
+          >
+            {steps.map((step) => (
             <motion.div
               key={step.number}
               variants={itemVariants}
               className="p-6 bg-dark-card border border-dark-border rounded-lg relative"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 flex items-center justify-center bg-accent/10 border border-accent/30 rounded-md text-accent text-sm font-semibold">
+                <motion.div 
+                  whileInView={{ boxShadow: ['0px 0px 0px rgba(212,175,55,0)', '0px 0px 15px rgba(212,175,55,0.4)', '0px 0px 0px rgba(212,175,55,0)'] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-8 h-8 flex items-center justify-center bg-dark-bg border border-accent/40 rounded-md text-accent text-sm font-semibold relative z-10"
+                >
                   {step.number}
-                </div>
-                <step.icon className="w-5 h-5 text-neutral-500" strokeWidth={1.5} />
+                </motion.div>
+                <step.icon className="w-5 h-5 text-neutral-500 relative z-10 bg-dark-card" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
               <p className="text-neutral-400 text-sm leading-relaxed">{step.description}</p>
             </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >

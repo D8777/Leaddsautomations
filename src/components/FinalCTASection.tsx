@@ -1,17 +1,42 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { MouseEvent } from 'react';
 
 interface FinalCTASectionProps {
   onRequestAudit: () => void;
 }
 
 export function FinalCTASection({ onRequestAudit }: FinalCTASectionProps) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
   return (
-    <section className="py-24 md:py-32 bg-dark-charcoal">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section 
+      className="py-24 md:py-32 bg-dark-charcoal relative overflow-hidden group"
+      onMouseMove={handleMouseMove}
+    >
+      <motion.div
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100 z-0"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              600px circle at ${mouseX}px ${mouseY}px,
+              rgba(212,175,55,0.07),
+              transparent 80%
+            )
+          `,
+        }}
+      />
+      <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-accent mb-6 tracking-tight">
