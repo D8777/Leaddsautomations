@@ -13,8 +13,9 @@ export function Navigation({ onRequestAudit }: NavigationProps) {
       className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-dark-border"
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-lg font-semibold text-white tracking-tight">
-          Automata
+        <a href="#" className="text-lg font-semibold text-white tracking-tight flex items-center gap-1">
+          <span className="text-accent font-bold">DS</span>
+          <span>Automations & AI Solutions</span>
         </a>
         <button
           onClick={onRequestAudit}

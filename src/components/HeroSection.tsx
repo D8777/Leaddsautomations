@@ -70,7 +70,7 @@ export function HeroSection({ onRequestAudit }: HeroSectionProps) {
             y: ['0%', '-5%', '10%', '0%'],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]"
+          className="absolute top-1/4 left-1/4 w-[32rem] h-[32rem] bg-accent-purple/30 rounded-full blur-[120px]"
         />
         <motion.div
           animate={{
@@ -78,7 +78,7 @@ export function HeroSection({ onRequestAudit }: HeroSectionProps) {
             y: ['0%', '10%', '-5%', '0%'],
           }}
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute bottom-1/4 right-1/4 w-[28rem] h-[28rem] bg-indigo-500/10 rounded-full blur-[120px]"
+          className="absolute bottom-1/4 right-1/4 w-[28rem] h-[28rem] bg-accent/15 rounded-full blur-[120px]"
         />
       </motion.div>
 
@@ -102,7 +102,7 @@ export function HeroSection({ onRequestAudit }: HeroSectionProps) {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
                 }}
-                className="text-transparent bg-clip-text bg-gradient-to-br from-white to-neutral-400"
+                className="text-transparent bg-clip-text bg-gradient-to-br from-white to-accent"
               >
                 {word}
               </motion.span>
@@ -116,6 +116,7 @@ export function HeroSection({ onRequestAudit }: HeroSectionProps) {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
+          <span className="text-accent font-medium block mb-2">Your business is my business.</span>
           We map where your operations break down and build systems that handle the repetitive parts — so your team can focus on work that actually needs them.
         </motion.p>
 
@@ -126,7 +127,7 @@ export function HeroSection({ onRequestAudit }: HeroSectionProps) {
         >
           <button
             onClick={onRequestAudit}
-            className="px-8 py-4 bg-accent/10 border border-accent/40 text-white text-base font-medium rounded-lg hover:bg-accent/20 hover:border-accent/80 hover:shadow-[0_0_30px_rgba(79,70,229,0.3)] hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+            className="px-8 py-4 bg-accent/10 border border-accent/40 text-white text-base font-medium rounded-lg hover:bg-accent/20 hover:border-accent/80 hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:scale-105 transition-all duration-300 relative overflow-hidden group"
           >
             <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:translate-x-[150%] transition-transform duration-1000 ease-out" />
             <span className="relative z-10">Request a Free Automation Audit</span>

@@ -12,15 +12,17 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
-            <p className="text-lg font-semibold text-white mb-1">Automata</p>
-            <p className="text-neutral-500 text-sm">Practical automation for growing teams.</p>
+            <p className="text-lg font-semibold text-white mb-1">
+              <span className="text-accent font-bold">DS</span> Automations & AI Solutions
+            </p>
+            <p className="text-neutral-500 text-sm">Your business is my business.</p>
           </div>
           <div className="text-center md:text-right">
             <a
-              href="mailto:hello@automata.work"
+              href="mailto:hello@dsautomations.com"
               className="text-neutral-400 hover:text-accent transition-colors text-sm"
             >
-              hello@automata.work
+              hello@dsautomations.com
             </a>
           </div>
         </div>
